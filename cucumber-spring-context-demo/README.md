@@ -99,6 +99,34 @@ public void theContextValueIs(String value) {
   `mvn clean test`
 - Run only Cucumber scenarios:  
   `mvn clean test -Dtest=CucumberTestRunner`
+- Run a specific scenario by name:  
+  `mvn clean test -Dtest=CucumberTestRunner -Dcucumber.filter.name="First scenario sets value and list"`
+- Run a specific scenario by tag:  
+  `mvn clean test -Dtest=CucumberTestRunner -Dcucumber.filter.tags="@myTag"`
+- Run a specific feature file:  
+  `mvn clean test -Dtest=CucumberTestRunner -Dcucumber.features="src/test/resources/features/myFeature.feature"`
+- Run with detailed output:  
+  `mvn clean test -Dtest=CucumberTestRunner -Dcucumber.plugin=pretty,html:target/cucumber-report.html`
+- Run JUnit tests only (Does this work?):  
+  `mvn clean test -Dtest='!CucumberTestRunner'`
+  (Tech note: This may not work and you may see error in Mac as "zsh: event not found: CucumberTestRunner".)
+  To workaround, you can run:  
+  `mvn clean test -Dtest=\!CucumberTestRunner` or `mvn clean test -Dtest='^CucumberTestRunner'` or `mvn clean test -Dtest='*' -DfailIfNoTests=false -DexcludeTests=CucumberTestRunner` or `mvn clean test -Dtest='*' -DfailIfNoTests=false -DexcludeTests='CucumberTestRunner'`
+  `mvn clean test -Dtest='!CucumberTestRunner'`
+- Run JUnit tests in a specific directory:  
+  `mvn clean test -Dtest=com/example/demo/*`
+- Run JUnit tests in a specific package:  
+  `mvn clean test -Dtest=com.example.demo.*`
+- Run a specific JUnit test class:  
+  `mvn clean test -Dtest=MyJUnitTest`
+- Run a specific JUnit test method:  
+  `mvn clean test -Dtest=MyJUnitTest#myTestMethod`
+- Generate JUnit reports:  
+  `mvn surefire-report:report`
+- Generate Cucumber reports:  
+  `mvn verify`
+- Clean project:  
+  `mvn clean`
 
 ## Dependencies
 
