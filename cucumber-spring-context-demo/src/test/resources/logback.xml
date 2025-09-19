@@ -1,0 +1,34 @@
+<configuration>
+    <!-- Console Appender using colored encodings -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+            <!-- Highlighting for console output -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %highlight(%-5level %logger{36} - %msg) %n</pattern>
+<!--            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+        </encoder>
+    </appender>
+
+    <!-- File Appender: always overwrites the previous log (not rolling) -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>app.log</file> <!-- The log file will be created in the working dir -->
+        <append>false</append>  <!-- Overwrite log file every time -->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Set default logging level here -->
+    <!-- Set logging level directly: INFO (change to DEBUG, ERROR, etc. as needed) -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
+    </root>
+
+    <!-- Example: Set a different level for your class/package -->
+    <logger name="org.example" level="DEBUG"/>
+
+    <!-- Example: Set a different level for your class/package -->
+    <logger name="org.example.util" level="INFO"/>
+
+</configuration>
