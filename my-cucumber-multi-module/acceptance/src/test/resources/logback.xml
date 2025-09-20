@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+            <!-- Highlighting for console output -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %highlight(%-5level %logger{36} - %msg) %n</pattern>
+            <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+        </encoder>
+    </appender>
+
+    <!-- Logs with the EXPLICIT logger name at DEBUG and above -->
+    <!--Since it is set to DEBUG, it will also log INFO, WARN, and ERROR levels-->
+    <!-- Additivity is set to false to prevent log messages from being propagated to the root logger-->
+    <!--The default is additivity="true", which means log messages would also go to the root logger-->
+    <logger name="acme-logger" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- Logs with package org.example at INFO and above -->
+    <logger name="com.example" level="INFO"/>
+
+    <root level="WARN">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

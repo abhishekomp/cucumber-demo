@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>my-cucumber-multi-module</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cucumber.version>7.18.1</cucumber.version>
+        <spring.version>5.3.39</spring.version>
+        <slf4j.version>2.0.13</slf4j.version>
+        <logback.version>1.5.13</logback.version>
+        <junit.jupiter.version>5.10.2</junit.jupiter.version>
+        <junit.platform.suite.version>1.10.1</junit.platform.suite.version>
+        <jacoco.version>0.8.9</jacoco.version>
+        <jackson.version>2.16.1</jackson.version>
+    </properties>
+
+    <modules>
+<!--        <module>commons</module>-->
+        <module>acceptance</module>
+        <module>commons</module>
+    </modules>
+
+</project>
